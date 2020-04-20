@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HrpAbstractions.Configuration
+namespace HprAbstractions.Configuration
 {
     public class RootConfigSection
     {

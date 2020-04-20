@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HrpAbstractions\HrpAbstractions.csproj" />
+    <ProjectReference Include="..\HprAbstractions\HprAbstractions.csproj" />
   </ItemGroup>
 
 </Project>

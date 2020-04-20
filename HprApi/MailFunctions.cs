@@ -1,4 +1,4 @@
-﻿using HrpAbstractions.Mail;
+﻿using HprAbstractions.Mail;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Newtonsoft.Json;

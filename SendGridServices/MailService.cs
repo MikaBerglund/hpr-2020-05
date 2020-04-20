@@ -1,5 +1,5 @@
-﻿using HrpAbstractions.Configuration;
-using HrpAbstractions.Mail;
+﻿using HprAbstractions.Configuration;
+using HprAbstractions.Mail;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;

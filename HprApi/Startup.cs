@@ -1,5 +1,5 @@
 ﻿using HprApi;
-using HrpAbstractions.Configuration;
+using HprAbstractions.Configuration;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Hosting;
 using Microsoft.Extensions.Configuration;
