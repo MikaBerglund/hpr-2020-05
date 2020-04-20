@@ -16,6 +16,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SendGridServices", "SendGri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HprAbstractions", "HprAbstractions\HprAbstractions.csproj", "{EE121AF5-823B-4037-94AC-FCF02A9657DF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{E0923431-44A8-44C3-9026-C0189FCF1EAE}"
+	ProjectSection(SolutionItems) = preProject
+		docs\Office-365-ja-Azure-palveluiden-yhdistäminen.pptx = docs\Office-365-ja-Azure-palveluiden-yhdistäminen.pptx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
