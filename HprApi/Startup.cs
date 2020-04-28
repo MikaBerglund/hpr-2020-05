@@ -8,6 +8,8 @@ using SendGridServices;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CognitiveServices;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
 
 [assembly: WebJobsStartup(typeof(Startup))]
 
@@ -24,8 +26,15 @@ namespace HprApi
             var rootConfig = config.Get<RootConfigSection>();
             services.AddSingleton(rootConfig);
             services.AddSingleton(rootConfig.Hpr.SendGrid);
+            services.AddSingleton(rootConfig.Hpr.ComputerVision);
+
+            services.AddSingleton(new ComputerVisionClient(new ApiKeyServiceClientCredentials(rootConfig.Hpr.ComputerVision.Key))
+            {
+                Endpoint = rootConfig.Hpr.ComputerVision.Endpoint
+            });
 
             services.AddSingleton<MailService>();
+            services.AddSingleton<ComputerVisionService>();
         }
     }
 }

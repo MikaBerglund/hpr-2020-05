@@ -7,6 +7,7 @@ namespace HprApi
     public static class Names
     {
 
+        public const string AnalyzeImage = nameof(AnalyzeImage);
         public const string SendEmailWithTemplate = nameof(SendEmailWithTemplate);
     }
 }

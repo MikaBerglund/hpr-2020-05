@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{E0923431-4
 		docs\Office-365-ja-Azure-palveluiden-yhdistäminen.pptx = docs\Office-365-ja-Azure-palveluiden-yhdistäminen.pptx
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CognitiveServices", "CognitiveServices\CognitiveServices.csproj", "{F1D4475D-5245-4594-93EF-EAD29C44B8DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,18 @@ Global
 		{EE121AF5-823B-4037-94AC-FCF02A9657DF}.Release|x64.Build.0 = Release|Any CPU
 		{EE121AF5-823B-4037-94AC-FCF02A9657DF}.Release|x86.ActiveCfg = Release|Any CPU
 		{EE121AF5-823B-4037-94AC-FCF02A9657DF}.Release|x86.Build.0 = Release|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Debug|x64.Build.0 = Debug|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Debug|x86.Build.0 = Debug|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Release|x64.ActiveCfg = Release|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Release|x64.Build.0 = Release|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Release|x86.ActiveCfg = Release|Any CPU
+		{F1D4475D-5245-4594-93EF-EAD29C44B8DA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,7 @@
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CognitiveServices\CognitiveServices.csproj" />
     <ProjectReference Include="..\HprAbstractions\HprAbstractions.csproj" />
     <ProjectReference Include="..\SendGridServices\SendGridServices.csproj" />
   </ItemGroup>

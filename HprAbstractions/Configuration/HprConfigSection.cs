@@ -9,5 +9,7 @@ namespace HprAbstractions.Configuration
 
         public SendGridConfigSection SendGrid { get; set; }
 
+        public ComputerVisionConfigSection ComputerVision { get; set; }
+
     }
 }
