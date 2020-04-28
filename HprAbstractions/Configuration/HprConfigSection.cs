@@ -11,5 +11,7 @@ namespace HprAbstractions.Configuration
 
         public ComputerVisionConfigSection ComputerVision { get; set; }
 
+        public MapConfigSection Map { get; set; }
+
     }
 }

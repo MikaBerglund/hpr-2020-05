@@ -9,5 +9,7 @@ namespace HprApi
 
         public const string AnalyzeImage = nameof(AnalyzeImage);
         public const string SendEmailWithTemplate = nameof(SendEmailWithTemplate);
+        public const string PositionToAddress = nameof(PositionToAddress);
+
     }
 }

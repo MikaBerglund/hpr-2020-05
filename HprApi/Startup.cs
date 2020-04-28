@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Text;
 using CognitiveServices;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using System.Net.Http;
 
 [assembly: WebJobsStartup(typeof(Startup))]
 
@@ -27,6 +28,8 @@ namespace HprApi
             services.AddSingleton(rootConfig);
             services.AddSingleton(rootConfig.Hpr.SendGrid);
             services.AddSingleton(rootConfig.Hpr.ComputerVision);
+            services.AddSingleton(rootConfig.Hpr.Map);
+
 
             services.AddSingleton(new ComputerVisionClient(new ApiKeyServiceClientCredentials(rootConfig.Hpr.ComputerVision.Key))
             {
@@ -35,6 +38,9 @@ namespace HprApi
 
             services.AddSingleton<MailService>();
             services.AddSingleton<ComputerVisionService>();
+            services.AddSingleton<MapServices.SearchService>();
+
+            services.AddSingleton(HttpClientFactory.Create());
         }
     }
 }
