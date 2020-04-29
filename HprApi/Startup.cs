@@ -29,6 +29,7 @@ namespace HprApi
             services.AddSingleton(rootConfig.Hpr.SendGrid);
             services.AddSingleton(rootConfig.Hpr.ComputerVision);
             services.AddSingleton(rootConfig.Hpr.Map);
+            services.AddSingleton(rootConfig.Hpr.Storage);
 
 
             services.AddSingleton(new ComputerVisionClient(new ApiKeyServiceClientCredentials(rootConfig.Hpr.ComputerVision.Key))

@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using HprWeb.Data;
+using StorageServices;
 
 namespace HprWeb
 {
@@ -34,6 +35,15 @@ namespace HprWeb
         {
             services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
                 .AddAzureAD(options => Configuration.Bind("AzureAd", options));
+
+
+            var rootConfig = this.Configuration.Get<HprAbstractions.Configuration.RootConfigSection>();
+            services.AddSingleton(rootConfig);
+            services.AddSingleton(rootConfig.Hpr.Storage);
+
+            services.AddSingleton<BlobsService>();
+
+
 
             services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
             {

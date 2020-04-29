@@ -1,0 +1,18 @@
+﻿@page "/attachments"
+
+<h3>Attachments</h3>
+
+@code {
+
+    [Inject]
+    protected BlobsService Blobs { get; set; }
+
+
+
+    protected override Task OnParametersSetAsync()
+    {
+        var s = this.Blobs;
+        return base.OnParametersSetAsync();
+    }
+
+}

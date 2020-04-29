@@ -13,5 +13,7 @@ namespace HprAbstractions.Configuration
 
         public MapConfigSection Map { get; set; }
 
+        public StorageConfigSection Storage { get; set; }
+
     }
 }
