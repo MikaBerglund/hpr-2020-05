@@ -9,5 +9,7 @@ namespace HprAbstractions.Configuration
 
         public string ConnectionString { get; set; }
 
+        public string AttachmentsContainerName { get; set; }
+
     }
 }

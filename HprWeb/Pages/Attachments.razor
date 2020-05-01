@@ -1,18 +1,57 @@
 ﻿@page "/attachments"
 
-<h3>Attachments</h3>
-
 @code {
+
+    [Parameter]
+    public IEnumerable<string> Files { get; set; }
+
+    [Parameter]
+    public bool AttachmentsLoaded { get; set; }
+
+
 
     [Inject]
     protected BlobsService Blobs { get; set; }
 
+    [Inject]
+    protected StorageConfigSection StorageConfig { get; set; }
 
 
-    protected override Task OnParametersSetAsync()
+    protected async override Task OnParametersSetAsync()
     {
-        var s = this.Blobs;
-        return base.OnParametersSetAsync();
+        await base.OnParametersSetAsync();
+
+        var files = await this.Blobs.EnumBlobsAsync(this.StorageConfig.AttachmentsContainerName);
+        this.Files = files;
+
+        this.AttachmentsLoaded = true;    
     }
 
+    private string CreateAttachmentUrl(string fileName)
+    {
+        return $"/api/attachments/{fileName}";
+    }
 }
+
+<h3>Attachments</h3>
+
+<ListGroup>
+    @if (this.AttachmentsLoaded)
+    {
+        if (this.Files.Count() > 0)
+        {
+            @foreach (var file in this.Files ?? new string[0])
+            {
+                <ListGroupAnchor Url="@this.CreateAttachmentUrl(file)" OpenInNewTab="true">@file</ListGroupAnchor>
+            }
+        }
+        else
+        {
+            <Alert Heading="Attachments" Color="NamedColor.Info">No attachments available.</Alert>
+        }
+    }
+    else
+    {
+        <Spinner Size="SpinnerSize.Normal" style="height: 64px; width: 64px" />
+    }
+</ListGroup>
