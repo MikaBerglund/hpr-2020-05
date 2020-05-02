@@ -1,0 +1,93 @@
+﻿@page "/uploadobservation"
+@inject LocationService  LocationService
+@inject AuthenticationStateProvider AuthProvider
+@inject LogicAppsClient LogicApps
+
+@code {
+
+
+
+    [Parameter]
+    public string Subtitle { get; set; }
+
+    private decimal? Latitude;
+    private decimal? Longitude;
+
+    private bool Uploaded = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        await this.SetLocationAsync();
+    }
+
+    private async Task HandleFiles(IFileListEntry[] files)
+    {
+        var file = files.FirstOrDefault();
+        if(null != file)
+        {
+            try
+            {
+                await this.SetLocationAsync();
+
+                var msg = new ReceiveImageRequest
+                {
+                    Lat = this.Latitude,
+                    Lon = this.Longitude
+                };
+
+                var authState = await this.AuthProvider.GetAuthenticationStateAsync();
+                msg.Email = authState?.User?.Identity?.Name;
+
+                await msg.SetImageAsync(file.Data);
+
+                var imageRef = new HprAbstractions.Imaging.ImageReference
+                {
+                    ImageData = msg.Image
+                };
+
+                await this.LogicApps.ReceiveImageAsync(msg);
+
+                this.Uploaded = true;
+            }
+            catch (Exception ex)
+            {
+                var err = ex.Message;
+            }
+
+        }
+    }
+
+    private async Task SetLocationAsync()
+    {
+        try
+        {
+            var location = await this.LocationService.GetLocationAsync();
+            this.Latitude = location?.Latitude;
+            this.Longitude = location?.Longitude;
+
+            this.Subtitle = $"@ Lat: {this.Latitude}, Lon: {this.Longitude}";
+        }
+        catch (Exception ex)
+        {
+            var msg = ex.Message;
+        }
+    }
+
+}
+
+<h3>Upload Observation</h3>
+
+<Card Header="Upload Observation" Subtitle="@this.Subtitle">
+    <LinkSectionTemplate>
+        @if (!this.Uploaded)
+        {
+            <Paragraph>Select the image you want to upload. Your current coordinates will be associated with the observation.</Paragraph>
+            <InputFile OnChange="@this.HandleFiles"></InputFile>
+        }
+        else
+        {
+            <Button Color="NamedColor.Primary" OnClicked="(b) => this.Uploaded = false">Upload another</Button>
+        }
+    </LinkSectionTemplate>
+</Card>

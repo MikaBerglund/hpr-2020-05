@@ -1,4 +1,5 @@
 ﻿using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 using System;
 using System.IO;
 using System.Linq;
@@ -19,10 +20,20 @@ namespace CognitiveServices
         public async Task<ImageMetadata> AnalyzeImageAsync(byte[] data)
         {
             ImageMetadata meta = null;
-
             using(var strm = new MemoryStream(data))
             {
-                var result = await this.Client.DescribeImageInStreamAsync(strm);
+                ImageDescription result = null;
+
+                try
+                {
+                    
+                    result = await this.Client.DescribeImageInStreamAsync(strm);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
                 meta = new ImageMetadata
                 {
                     Format = result.Metadata.Format,
@@ -35,5 +46,6 @@ namespace CognitiveServices
 
             return meta;
         }
+
     }
 }

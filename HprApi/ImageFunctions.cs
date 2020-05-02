@@ -25,12 +25,19 @@ namespace HprApi
         public async Task<HttpResponseMessage> AnalyzeImage([HttpTrigger(AuthorizationLevel.Function, "POST", Route = "Images/Analyze")]HttpRequestMessage request)
         {
             var json = await request.Content.ReadAsStringAsync();
-            var imageRef = JsonConvert.DeserializeObject<ImageReference>(json);
+            string resultJson = null;
 
-            var data = Convert.FromBase64String(imageRef.ImageData);
-            var meta = await this.VisionService.AnalyzeImageAsync(data);
-
-            var resultJson = JsonConvert.SerializeObject(meta);
+            try
+            {
+                var imageRef = JsonConvert.DeserializeObject<ImageReference>(json);
+                var data = Convert.FromBase64String(imageRef.ImageData);
+                var meta = await this.VisionService.AnalyzeImageAsync(data);
+                resultJson = JsonConvert.SerializeObject(meta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
             return new HttpResponseMessage(HttpStatusCode.OK)
             {

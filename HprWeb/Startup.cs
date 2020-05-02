@@ -17,6 +17,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using HprWeb.Data;
 using StorageServices;
+using AspNetMonsters.Blazor.Geolocation;
+using System.Net.Http;
+using LogicAppsServices;
 
 namespace HprWeb
 {
@@ -40,10 +43,12 @@ namespace HprWeb
             var rootConfig = this.Configuration.Get<HprAbstractions.Configuration.RootConfigSection>();
             services.AddSingleton(rootConfig);
             services.AddSingleton(rootConfig.Hpr.Storage);
+            services.AddSingleton(rootConfig.Hpr.LogicApps);
 
             services.AddSingleton<BlobsService>();
-
-
+            services.AddScoped<LocationService>();
+            services.AddSingleton<LogicAppsClient>();
+            services.AddSingleton(new HttpClient());
 
             services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
             {

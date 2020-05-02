@@ -1,5 +1,8 @@
 ﻿@page "/attachments"
 
+@inject BlobsService Blobs
+@inject StorageConfigSection StorageConfig
+
 @code {
 
     [Parameter]
@@ -10,13 +13,6 @@
 
 
 
-    [Inject]
-    protected BlobsService Blobs { get; set; }
-
-    [Inject]
-    protected StorageConfigSection StorageConfig { get; set; }
-
-
     protected async override Task OnParametersSetAsync()
     {
         await base.OnParametersSetAsync();
@@ -24,7 +20,8 @@
         var files = await this.Blobs.EnumBlobsAsync(this.StorageConfig.AttachmentsContainerName);
         this.Files = files;
 
-        this.AttachmentsLoaded = true;    
+
+        this.AttachmentsLoaded = true;
     }
 
     private string CreateAttachmentUrl(string fileName)
