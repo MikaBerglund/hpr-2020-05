@@ -27,7 +27,13 @@ namespace HprWeb
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.Configuration = new ConfigurationBuilder()
+                .AddConfiguration(configuration)
+                .AddJsonFile("appsettings.local.json", true)
+
+
+                .Build()
+                ;
         }
 
         public IConfiguration Configuration { get; }
