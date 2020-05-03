@@ -56,7 +56,8 @@ namespace HprWeb.Controllers.Api
             var msg = new HprAbstractions.Messaging.ReceiveImageRequest {
                 Lat = lat,
                 Lon = lon,
-                Image = Convert.ToBase64String(buffer)
+                Image = Convert.ToBase64String(buffer),
+                Email = this?.User?.Identity?.Name
             };
 
             await this.LogicApps.ReceiveImageAsync(msg);
