@@ -21,43 +21,6 @@
         await this.SetLocationAsync();
     }
 
-    private async Task HandleFiles(IFileListEntry[] files)
-    {
-        var file = files.FirstOrDefault();
-        if(null != file)
-        {
-            try
-            {
-                await this.SetLocationAsync();
-
-                var msg = new ReceiveImageRequest
-                {
-                    Lat = this.Latitude,
-                    Lon = this.Longitude
-                };
-
-                var authState = await this.AuthProvider.GetAuthenticationStateAsync();
-                msg.Email = authState?.User?.Identity?.Name;
-
-                await msg.SetImageAsync(file.Data);
-
-                var imageRef = new HprAbstractions.Imaging.ImageReference
-                {
-                    ImageData = msg.Image
-                };
-
-                await this.LogicApps.ReceiveImageAsync(msg);
-
-                this.Uploaded = true;
-            }
-            catch (Exception ex)
-            {
-                var err = ex.Message;
-            }
-
-        }
-    }
-
     private async Task SetLocationAsync()
     {
         try
@@ -83,7 +46,11 @@
         @if (!this.Uploaded)
         {
             <Paragraph>Select the image you want to upload. Your current coordinates will be associated with the observation.</Paragraph>
-            <InputFile OnChange="@this.HandleFiles"></InputFile>
+            <form action="/api/Attachments/Observations?lat=@this.Latitude&lon=@this.Longitude" enctype="multipart/form-data" method="post">
+                <input type="file" name="file" />
+
+                <input type="submit" class="btn btn-primary" value="Upload" />
+            </form>
         }
         else
         {
