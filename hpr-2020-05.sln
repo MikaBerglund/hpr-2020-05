@@ -18,18 +18,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HprAbstractions", "HprAbstr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{E0923431-44A8-44C3-9026-C0189FCF1EAE}"
 	ProjectSection(SolutionItems) = preProject
-		docs\Office-365-ja-Azure-palveluiden-yhdistäminen.pptx = docs\Office-365-ja-Azure-palveluiden-yhdistäminen.pptx
+		docs\HPR-20-Palveluiden-yhdistäminen-Mika-Berglund.pptx = docs\HPR-20-Palveluiden-yhdistäminen-Mika-Berglund.pptx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CognitiveServices", "CognitiveServices\CognitiveServices.csproj", "{F1D4475D-5245-4594-93EF-EAD29C44B8DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CognitiveServices", "CognitiveServices\CognitiveServices.csproj", "{F1D4475D-5245-4594-93EF-EAD29C44B8DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapServices", "MapServices\MapServices.csproj", "{6B01F1F2-CD1B-4238-BD59-AF0255B741A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapServices", "MapServices\MapServices.csproj", "{6B01F1F2-CD1B-4238-BD59-AF0255B741A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HprWeb", "HprWeb\HprWeb.csproj", "{B35ED950-331C-42D2-A886-777E8671D64C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HprWeb", "HprWeb\HprWeb.csproj", "{B35ED950-331C-42D2-A886-777E8671D64C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageServices", "StorageServices\StorageServices.csproj", "{2B12244D-1949-4716-B965-F0EAFE9CB051}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StorageServices", "StorageServices\StorageServices.csproj", "{2B12244D-1949-4716-B965-F0EAFE9CB051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicAppsServices", "LogicAppsServices\LogicAppsServices.csproj", "{C4F0D728-2B57-4DD0-ADEA-1CE0D8B7BA43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicAppsServices", "LogicAppsServices\LogicAppsServices.csproj", "{C4F0D728-2B57-4DD0-ADEA-1CE0D8B7BA43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
